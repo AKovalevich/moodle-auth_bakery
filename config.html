@@ -1,0 +1,123 @@
+<!-- Main config file -->
+<div style="text-align: center">
+	IDEA Authentication Plugin using Bakery SSO Master Server
+</div><br />
+<!-- Some config needed -->
+<?php
+    global $OUTPUT;
+    // Set to defaults if undefined
+    if (!isset($config->skey)) {
+        $config->skey = '';
+    }
+    if (!isset($config->cookiedomain)) {
+        $config->cookiedomain = '';
+    }
+    if (!isset($config->masterurl)) {
+        $config->masterurl = 'http://';
+    }
+    if (!isset($config->slaveurl)) {
+        $config->slaveurl = 'http://';
+    }
+    if (empty($config->defaultcountry)) {
+        $config->defaultcountry = 'US';
+    }
+
+    $yesno = array( get_string('no'), get_string('yes') );
+
+?>
+<table cellspacing="0" cellpadding="5" border="0">
+
+<tr valign="top" class="required">
+    <td align="right"><label for="skey"><?php print_string("auth_bakery_skey_key", "auth_bakery") ?></label></td>
+    <td>
+        <input id="skey" name="skey" type="text" size="30" value="<?php echo $config->skey?>" />
+        <?php
+
+        if (isset($err["skey"])) {
+            echo $OUTPUT->error_text($err["skey"]);
+        }
+
+        ?>
+    </td>
+    <td><?php print_string("auth_bakery_skey", "auth_bakery") ?></td>
+</tr>
+
+<tr valign="top" class="required">
+    <td align="right"><label for="cookiedomain"><?php print_string("auth_bakery_cookiedomain_key", "auth_bakery") ?></label></td>
+    <td>
+        <input id="cookiedomain" name="cookiedomain" type="text" size="30" value="<?php echo $config->cookiedomain?>" />
+        <?php
+
+        if (isset($err["cookiedomain"])) {
+            echo $OUTPUT->error_text($err["cookiedomain"]);
+        }
+
+        ?>
+    </td>
+    <td><?php print_string("auth_bakery_cookiedomain", "auth_bakery") ?></td>
+</tr>
+
+<tr valign="top" class="required">
+    <td align="right">
+        <label for="masterurl"><?php print_string('auth_bakery_masterurl_key', 'auth_bakery') ?></label>
+    </td>
+    <td>
+        <input name="masterurl" id="masterurl" type="text" size="30" value="<?php echo $config->masterurl?>" />
+        <?php 
+        
+        if (isset($err['masterurl'])) { 
+        	echo $OUTPUT->error_text($err['masterurl']);
+        } 
+        
+        ?>
+    </td>
+    <td>
+        <?php print_string('auth_bakery_masterurl', 'auth_bakery') ?>
+    </td>
+</tr>
+
+<tr valign="top" class="required">
+    <td align="right">
+        <label for="slaveurl"><?php print_string('auth_bakery_slaveurl_key', 'auth_bakery') ?></label>
+    </td>
+    <td>
+        <input name="slaveurl" id="slaveurl" type="text" size="30" value="<?php echo $config->slaveurl?>" />
+        <?php 
+        
+        if (isset($err['slaveurl'])) { 
+        	echo $OUTPUT->error_text($err['slaveurl']);
+        }
+        
+        ?>
+    </td>
+    <td>
+        <?php print_string('auth_bakery_slaveurl', 'auth_bakery') ?>
+    </td>
+</tr>
+
+<tr valign="top" class="required">
+    <td align="right">
+        <label for="defaultcountry"><?php print_string('auth_bakery_defaultcountry_key', 'auth_bakery') ?></label>
+    </td>
+    <td>
+        <input name="defaultcountry" id="defaultcountry" type="text" size="30" value="<?php echo $config->defaultcountry?>" />
+        <?php 
+        
+        if (isset($err['defaultcountry'])) { 
+        	echo $OUTPUT->error_text($err['defaultcountry']);
+        }
+        
+        ?>
+    </td>
+    <td>
+        <?php print_string('auth_bakery_defaultcountry', 'auth_bakery') ?>
+    </td>
+</tr>
+<!-- Some config needed -->
+<table cellspacing="0" cellpadding="5" border="0">
+	<?php
+
+	print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);
+
+	?>
+</table>
