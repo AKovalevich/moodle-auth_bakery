@@ -1,8 +1,7 @@
-moodle-auth_bakery
-==================
+auth_bakery
+===========
 
 SSO Authentication via a Bakery [Drupal] Master Server
-
 
 Overview
 --------
@@ -15,6 +14,11 @@ For more on Bakery, please see here:
 
 http://drupal.org/project/bakery
 
+Requirements
+------------
+
+1. Master Bakery server on a Drupal instance. Tested with both Drupal 6 and Drupal 7.
+2. Standard Moodle installation. Tested with 2.2.7+ and 2.4.
 
 Installation
 ------------
@@ -26,7 +30,6 @@ To install:
 3. Go to the plugin settings and fill in the required options.
 4. Logout as Admin.
 
-
 Technical Specifications
 ------------------------
 
@@ -35,7 +38,6 @@ auth_bakery relies on the standard Moodle provided hooks:
 1. ```loginpage_hook()``` sends the user to the master server, checks for the CHOCOLATECHIP cookie, unpacks it and creates and/or updates the Moodle user and logs them in.
 2. ```logoutpage_hook()``` destroys the CHOCOLATECHIP cookie, thus logging out the user from the master as well.
 
-
 Note
 ----
 
@@ -43,10 +45,12 @@ At present, Moodle requires each user to have a value for the country field. Thi
 
 The only issue with not having a value is that the Moodle edit screen will throw an exception. We have chosen to fill in a default value, and that is set with the settings screen.
 
+Also, given that some versions of Moodle do not automatically log out after the Master Bakery server logs out, it might be a good idea to lower the threshold for automated session timeout, as found in Site Administration > Server > Session Handling.
+
 Future
 ------
 
-Older versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming soon.
+Some versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming soon.
 
 Licence
 -------
