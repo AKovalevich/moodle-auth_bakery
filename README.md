@@ -22,8 +22,8 @@ Installation
 To install:
 
 1. Copy the contents of the /bakery/ folder to the <MOODLE_PATH>/auth/ folder.
-2. Open <MOODLE_PATH>/auth/bakery/includes/BakerySettings.php and fill in the blanks.
-3. Login as Admin to Moodle, go to Site Administration > Plugins > Authentication and enable the Bakery SSO (IDEA) plugin.
+2. Login as Admin to Moodle, go to Site Administration > Plugins > Authentication and enable the Bakery SSO (IDEA) plugin.
+3. Go to the plugin settings and fill in the required options.
 4. Logout as Admin.
 
 
@@ -48,4 +48,4 @@ The only issue with not having a value is that the Moodle edit screen will throw
 Future
 ------
 
-Configuration settings will be moved to the plugin settings configuration screen.
+Older versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming.
