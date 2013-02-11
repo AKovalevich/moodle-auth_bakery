@@ -7,9 +7,9 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU Public License
  * @package bakery
  *
- * Authentication Plugin: IDEA Bakery SSO
+ * Authentication Plugin: Bakery SSO (IDEA)
  *
- * No authentication localy at all, everything goes throught bakery master server. This method approves login without password!
+ * No authentication localy at all, everything goes through a Bakery master server. User information encrypted in the Bakery CHOCOLATECHIP cookie.
  *
  * 2013-02-05  File created.
  */
@@ -23,7 +23,7 @@ require_once ($CFG -> libdir . '/authlib.php');
 require_once ($CFG -> dirroot . '/auth/bakery/includes/BakeryFunctions.php');
 
 /**
- * Plugin for no authentication.
+ * Plugin for Bakery SSO authentication.
  */
 class auth_plugin_bakery extends auth_plugin_base {
 
