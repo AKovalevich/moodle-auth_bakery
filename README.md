@@ -47,3 +47,8 @@ Future
 ------
 
 Older versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming soon.
+
+Licence
+-------
+
+auth_bakery is licensed under the MIT license (http://opensource.org/licenses/MIT).
