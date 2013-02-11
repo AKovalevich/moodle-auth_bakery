@@ -48,4 +48,4 @@ The only issue with not having a value is that the Moodle edit screen will throw
 Future
 ------
 
-Older versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming.
+Older versions of Moodle to not automatically log out after the Master Bakery server logs out. Fix coming soon.
