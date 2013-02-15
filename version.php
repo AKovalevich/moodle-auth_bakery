@@ -17,6 +17,6 @@ $plugin -> version = 2013020500;
 $plugin -> requires = 2011120507;
 // Full name of the plugin (used for diagnostics)
 $plugin -> component = 'auth_bakery';
-$plugin -> maturity = 'MATURITY_STABLE';
+$plugin -> maturity = MATURITY_STABLE;
 $plugin -> release = '1.0 (Build: 2013020800)';
 ?>
