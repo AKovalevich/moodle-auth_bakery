@@ -26,9 +26,10 @@ Installation
 To install:
 
 1. Copy the contents of the ```/bakery/``` folder to the ```<MOODLE_PATH>/auth/``` folder.
-2. Login as Admin to Moodle, go to Site Administration > Plugins > Authentication and enable the Bakery SSO (IDEA) plugin.
-3. Go to the plugin settings and fill in the required options.
-4. Logout as Admin.
+2. Login as Admin to Moodle - it should notify you there is a new authentication plugin and ask you to update.
+3. Go to Site Administration > Plugins > Authentication and enable the Bakery SSO (IDEA) plugin.
+4. Go to the plugin settings and fill in the required options.
+5. Logout as Admin.
 
 Technical Specifications
 ------------------------
