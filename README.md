@@ -48,7 +48,7 @@ The only issue with not having a value is that the Moodle edit screen will throw
 
 Also, given that some versions of Moodle do not automatically log out after the Master Bakery server logs out, it might be a good idea to lower the threshold for automated session timeout, as found in Site Administration > Server > Session Handling.
 
-Should you want to force an immediate logout, you can add this code at the bottom of your Moodle config.php file:
+Should you want to force an immediate logout, you can add this code near the top of your Moodle index.php file:
 
 ```if (isloggedin() && !isguestuser() && !isset($_COOKIE['CHOCOLATECHIP'])) { require_logout(); }```
 
