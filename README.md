@@ -1,7 +1,7 @@
 auth_bakery
 ===========
 
-SSO Authentication via a Bakery [Drupal] Master Server
+SSO Authentication via a Bakery [Drupal] Master Server.
 
 Overview
 --------
