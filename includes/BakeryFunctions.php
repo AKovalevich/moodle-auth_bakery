@@ -10,7 +10,6 @@ function validateCookie($type = 'CHOCOLATECHIP') {
 	global $key, $cookieDomain, $cookie;
 
 	if (!isset($_COOKIE[$type]) || !$key || !$cookieDomain) {
-		print "FALSE";
 		return FALSE;
 	}
 
@@ -20,7 +19,6 @@ function validateCookie($type = 'CHOCOLATECHIP') {
 	$encrypted_data = substr($data, 64);
 
 	if ($signature !== hash_hmac('sha256', $encrypted_data, $key)) {
-		print "False signature";
 		return FALSE;
 	}
 
