@@ -8,14 +8,26 @@
  */
 function validateCookie($type = 'CHOCOLATECHIP') {
 	global $key, $cookieDomain, $cookie;
+
 	if (!isset($_COOKIE[$type]) || !$key || !$cookieDomain) {
+		print "FALSE";
 		return FALSE;
 	}
-	$cookie = unserialize(bakeryMix($_COOKIE[$type], 0));
-	//Generate signature for comparison
-	$signature = hash_hmac('sha256', $cookie['name'] . '/' . $cookie['mail'] . '/' . $cookie['timestamp'], $key);
+
+	$data = base64_decode($_COOKIE[$type]);
+
+	$signature = substr($data, 0, 64);
+	$encrypted_data = substr($data, 64);
+
+	if ($signature !== hash_hmac('sha256', $encrypted_data, $key)) {
+		print "False signature";
+		return FALSE;
+	}
+
+	$cookie = unserialize(bakeryMix($encrypted_data, 0));
+
 	$valid = FALSE;
-	if ($signature == $cookie['signature'] && $cookie['timestamp'] + 36000 >= $_SERVER['REQUEST_TIME']) {
+	if ($cookie['timestamp'] + 3600 >= $_SERVER['REQUEST_TIME']) {
 		$valid = TRUE;
 	}
 	return $valid ? $cookie : $valid;
@@ -43,7 +55,7 @@ function bakeryMix($text, $crypt) {
 		// Characters that are not stored consistently in cookies.
 		$encrypted_data = base64_encode(mcrypt_generic($td, $text));
 	} else {
-		$encrypted_data = mdecrypt_generic($td, base64_decode($text));
+		$encrypted_data = mdecrypt_generic($td, $text);
 	}
 
 	mcrypt_generic_deinit($td);
