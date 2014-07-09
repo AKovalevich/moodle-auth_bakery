@@ -77,9 +77,11 @@ class auth_plugin_bakery extends auth_plugin_base {
 	 * @return bool
 	 */
 	function logoutpage_hook() {
+		$cookie_secure = ini_get('session.cookie_secure');
 		$cookieDomain = $this -> config -> cookiedomain;
 		$type = 'CHOCOLATECHIP';
-		setcookie($type, '', $_SERVER['REQUEST_TIME'] - 36000, '/', $cookieDomain, FALSE);
+		setcookie($type, '', $_SERVER['REQUEST_TIME'] - 3600, '/', '', (empty($cookie_secure) ? FALSE : TRUE));
+		setcookie($type, '', $_SERVER['REQUEST_TIME'] - 3600, '/', $cookieDomain, (empty($cookie_secure) ? FALSE : TRUE));
 		return;
 	}
 
