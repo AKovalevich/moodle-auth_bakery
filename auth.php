@@ -129,8 +129,8 @@ class auth_plugin_bakery extends auth_plugin_base {
 			if (isloggedin() && !isguestuser()) {
 				require_logout();
 			} else {
-				$master_redirect = $masterURL . 'user/login?return_dest=' . urlencode($slaveURL . 'login/index.php');
-				header('Location: ' . $master_redirect);
+//				$master_redirect = $masterURL . 'user/login?return_dest=' . urlencode($slaveURL . 'login/index.php');
+//				header('Location: ' . $master_redirect);
 			}
 		}
 	}
